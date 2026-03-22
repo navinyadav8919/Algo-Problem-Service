@@ -1,6 +1,8 @@
 // Controller layer
 
 const { StatusCodes } = require('http-status-codes');
+const NotImplemented = require('../errors/notimplemented.error');
+const BadRequest = require('../errors/badrequest.error');
 
 // Health check controller
 function pingProblemController(req, res) {
@@ -11,11 +13,12 @@ function pingProblemController(req, res) {
 }
 
 // Create a new problem
-function addProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        success: false,
-        message: "Not Implemented"
-    });
+function addProblem(req, res,next) {
+   try {
+     throw new BadRequest('Problem Name',{missing: ["problem name"]});
+   } catch (error) {
+        next(error);
+   }
 }
 
 // Get a single problem by ID
