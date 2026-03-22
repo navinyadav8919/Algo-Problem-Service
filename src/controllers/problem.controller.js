@@ -1,6 +1,8 @@
 // Controller layer
 
 const { StatusCodes } = require('http-status-codes');
+const NotImplemented = require('../errors/notimplemented.error');
+const BadRequest = require('../errors/badrequest.error');
 
 // Health check controller
 function pingProblemController(req, res) {
@@ -11,43 +13,48 @@ function pingProblemController(req, res) {
 }
 
 // Create a new problem
-function addProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        success: false,
-        message: "Not Implemented"
-    });
+function addProblem(req, res,next) {
+   try {
+     throw new NotImplemented("Add Problem");
+   } catch (error) {
+        next(error);
+   }
 }
 
 // Get a single problem by ID
 function getProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        success: false,
-        message: "Not Implemented"
-    });
+   try {
+     throw new NotImplemented("Add Problem");
+   } catch (error) {
+        next(error);
+   }
 }
 
 // Get all problems
 function getProblems(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        success: false,
-        message: "Not Implemented"
-    });
+    try {
+     throw new NotImplemented("Add Problem");
+   } catch (error) {
+        next(error);
+   }
 }
 
 // Delete a problem by ID
 function deleteProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        success: false,
-        message: "Not Implemented"
-    });
+    try {
+     throw new NotImplemented("Add Problem");
+   } catch (error) {
+        next(error);
+   }
 }
 
 // Update a problem by ID
 function updateProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        success: false,
-        message: "Not Implemented"
-    });
+    try {
+     throw new NotImplemented("Add Problem");
+   } catch (error) {
+        next(error);
+   }
 }
 
 module.exports = {
