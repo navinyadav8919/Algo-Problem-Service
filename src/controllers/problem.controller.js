@@ -35,6 +35,10 @@ function addProblem(req, res) {
 
     // Here we usually call a service like:
     // ProblemService.createProblem(req.body)
+    return res.status(501).json({
+        message:"Not Implemented"
+    })
+
 
 }
 
@@ -51,6 +55,9 @@ function getProblem(req, res) {
     // const problemId = req.params.id;
 
     // Then we call a service to fetch data from database
+    return res.status(501).json({
+        message:"Not Implemented"
+    })
 
 }
 
@@ -64,6 +71,9 @@ function getProblems(req, res) {
     // Here we normally fetch all problems from database
     // Example:
     // const problems = ProblemService.getAllProblems();
+    return res.status(501).json({
+        message:"Not Implemented"
+    })
 
 }
 
@@ -77,6 +87,9 @@ function deleteProblem(req, res) {
     // req.params.id will contain the problem id
     // Example:
     // ProblemService.deleteProblem(req.params.id)
+    return res.status(501).json({
+        message:"Not Implemented"
+    })
 
 }
 
@@ -92,6 +105,9 @@ function updateProblem(req, res) {
 
     // Example:
     // ProblemService.updateProblem(req.params.id, req.body)
+    return res.status(501).json({
+        message:"Not Implemented"
+    })
 
 }
 
