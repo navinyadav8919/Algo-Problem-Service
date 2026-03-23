@@ -22,7 +22,7 @@ function addProblem(req, res,next) {
 }
 
 // Get a single problem by ID
-function getProblem(req, res) {
+function getProblem(req, res,next) {
    try {
      throw new NotImplemented("Add Problem");
    } catch (error) {
@@ -31,7 +31,7 @@ function getProblem(req, res) {
 }
 
 // Get all problems
-function getProblems(req, res) {
+function getProblems(req, res,next) {
     try {
      throw new NotImplemented("Add Problem");
    } catch (error) {
@@ -40,7 +40,7 @@ function getProblems(req, res) {
 }
 
 // Delete a problem by ID
-function deleteProblem(req, res) {
+function deleteProblem(req, res,next) {
     try {
      throw new NotImplemented("Add Problem");
    } catch (error) {
@@ -49,7 +49,7 @@ function deleteProblem(req, res) {
 }
 
 // Update a problem by ID
-function updateProblem(req, res) {
+function updateProblem(req, res,next) {
     try {
      throw new NotImplemented("Add Problem");
    } catch (error) {
