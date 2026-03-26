@@ -3,6 +3,11 @@
 const { StatusCodes } = require('http-status-codes');
 const NotImplemented = require('../errors/notimplemented.error');
 const BadRequest = require('../errors/badrequest.error');
+const {ProblemService}= require('../services');
+const { ProblemRepository }= require('../repositories')
+
+
+const problemService = new ProblemService( new ProblemRepository());
 
 // Health check controller
 function pingProblemController(req, res) {
@@ -13,34 +18,53 @@ function pingProblemController(req, res) {
 }
 
 // Create a new problem
-function addProblem(req, res,next) {
+async function addProblem(req, res,next) {
    try {
-     throw new NotImplemented("Add Problem");
+     console.log('incomeing body request',req.body);
+      const newproblem =await problemService.createProblem(req.body);
+      return res.status(StatusCodes.CREATED).json({
+          success:true,
+          message: 'Successfully created a new problem',
+          error: {},
+          data: newproblem
+      })
    } catch (error) {
         next(error);
    }
 }
 
 // Get a single problem by ID
-function getProblem(req, res) {
+async function getProblem(req, res,next) {
    try {
-     throw new NotImplemented("Add Problem");
+     const problem =await problemService.getProblem(req.params.id);
+     return res.status(StatusCodes.OK).json({
+        success: true,
+        error: {},
+        message: 'Successfully fetched a problem',
+        data: problem
+     })
    } catch (error) {
         next(error);
    }
 }
 
 // Get all problems
-function getProblems(req, res) {
+async function getProblems(req, res,next) {
     try {
-     throw new NotImplemented("Add Problem");
+    const response = await problemService.getAllProblems();
+    return res.status(StatusCodes.OK).json({
+            success:true,
+          message: 'Successfully fetched all the problems',
+          error: {},
+          data: response
+    })
    } catch (error) {
         next(error);
    }
 }
 
 // Delete a problem by ID
-function deleteProblem(req, res) {
+function deleteProblem(req, res,next) {
     try {
      throw new NotImplemented("Add Problem");
    } catch (error) {
@@ -49,7 +73,7 @@ function deleteProblem(req, res) {
 }
 
 // Update a problem by ID
-function updateProblem(req, res) {
+function updateProblem(req, res,next) {
     try {
      throw new NotImplemented("Add Problem");
    } catch (error) {
