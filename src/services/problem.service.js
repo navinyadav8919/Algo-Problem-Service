@@ -11,10 +11,10 @@ class ProblemService{
              //1.sanitize the markdown for description
         problemData.description = markdownSanitizer(problemData.description);
         
-        console.log('problem data',problemData);
+        // console.log('problem data',problemData);
         const problem = await this.problemRepository.createProblem(problemData);
 
-        console.log("problem created",problem);
+        // console.log("problem created",problem);
         return problem;
 
        } catch (error) {
@@ -34,6 +34,11 @@ class ProblemService{
             
         }
 
+    }
+
+    async getProblem(problemID){
+        const problem = await this.problemRepository.getProblem(problemID);
+        return problem;
     }
 }
 
